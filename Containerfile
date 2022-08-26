@@ -3,7 +3,7 @@ LABEL authors="Kosmas Hench" \
       description="Container containing genotyping software"
 
 # setting up conda
-RUN apt update && apt install -y wget
+RUN apt update && apt install -y wget procps
 RUN wget https://repo.anaconda.com/miniconda/Miniconda3-py39_4.12.0-Linux-x86_64.sh && \
     bash Miniconda3-py39_4.12.0-Linux-x86_64.sh -b -p /miniconda
 
@@ -18,4 +18,4 @@ RUN conda config --add channels defaults && \
 # install packages available via conda
 COPY env.yml /
 RUN mamba env create -f /env.yml && conda clean -a
-ENV PATH ${PATH}:/miniconda/envs/genotyping_suite-0.1/bin
+ENV PATH ${PATH}:/miniconda/envs/genotyping_suite-0.2/bin
