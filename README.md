@@ -15,7 +15,7 @@ To make the container publicly available, it is pushed to [dockerhub](https://hu
 
 ```sh
 skopeo login -u khench docker.io
-podman push localhost/genotyping_suite docker.io/khench/genotyping_suite:v0.2
+podman push localhost/genotyping_suite docker.io/khench/genotyping_suite:v0.3
 ```
 
 ## Accessing the container
@@ -23,5 +23,5 @@ podman push localhost/genotyping_suite docker.io/khench/genotyping_suite:v0.2
 The bundled software can be accessed directly from [dockerhub](https://hub.docker.com/r/khench/genotyping_suite) with `podman` (or `docker`, or `singularity`):
 
 ```sh
-podman run docker.io/khench/genotyping_suite:v0.2 which bwa
+podman run docker.io/khench/genotyping_suite:v0.3 gatk --version
 ```

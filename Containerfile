@@ -18,4 +18,4 @@ RUN conda config --add channels defaults && \
 # install packages available via conda
 COPY env.yml /
 RUN mamba env create -f /env.yml && conda clean -a
-ENV PATH ${PATH}:/miniconda/envs/genotyping_suite-0.2/bin
+ENV PATH ${PATH}:/miniconda/envs/genotyping_suite-0.3/bin
