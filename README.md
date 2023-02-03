@@ -1,4 +1,4 @@
-# README for  `genotyping_suite` <img src="logo.svg" align="right" alt="" width="120" />
+# README for `genotyping_suite` <img src="logo.svg" align="right" alt="" width="120" />
 
 Github repository for the [podman](https://podman.io/) conatiner [`genotyping_suite`](https://hub.docker.com/repository/docker/khench/genotyping_suite).
 The main motivation for the creation was to bundle `bwa` and `gatk` within a single container.
@@ -15,7 +15,7 @@ To make the container publicly available, it is pushed to [dockerhub](https://hu
 
 ```sh
 skopeo login -u khench docker.io
-podman push localhost/genotyping_suite docker.io/khench/genotyping_suite:v0.3
+podman push localhost/genotyping_suite docker.io/khench/genotyping_suite:v0.4
 ```
 
 ## Accessing the container
@@ -23,5 +23,5 @@ podman push localhost/genotyping_suite docker.io/khench/genotyping_suite:v0.3
 The bundled software can be accessed directly from [dockerhub](https://hub.docker.com/r/khench/genotyping_suite) with `podman` (or `docker`, or `singularity`):
 
 ```sh
-podman run docker.io/khench/genotyping_suite:v0.3 gatk --version
+podman run docker.io/khench/genotyping_suite:v0.4 gatk --version
 ```

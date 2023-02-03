@@ -18,4 +18,16 @@ RUN conda config --add channels defaults && \
 # install packages available via conda
 COPY env.yml /
 RUN mamba env create -f /env.yml && conda clean -a
-ENV PATH ${PATH}:/miniconda/envs/genotyping_suite-0.3/bin
+
+# install est-sfs manually
+RUN apt install -y git gcc make libz-dev libbz2-dev liblzma-dev libcurl4-gnutls-dev libgsl-dev
+RUN mkdir -p /manual_install/bin && \
+    cd /manual_install && \
+    wget https://netcologne.dl.sourceforge.net/project/est-usfs/est-sfs-release-2.04.tar.gz && \
+    tar -zxvf est-sfs-release-2.04.tar.gz && \
+    cd est-sfs-release-2.04 && \
+    make && \
+    cd ../bin && \
+    ln ../est-sfs-release-2.04/est-sfs ./
+
+ENV PATH ${PATH}:/miniconda/envs/genotyping_suite-0.4/bin:/manual_install/bin
